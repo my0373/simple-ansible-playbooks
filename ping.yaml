@@ -5,5 +5,5 @@
   gather_facts: no
 
   tasks:
-  - name: "Ping the host {{ inventory_hostname }}"
-    ping:
+    - name: "Ping the host {{ inventory_hostname }}"
+      ping:
