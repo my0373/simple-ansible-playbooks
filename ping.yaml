@@ -1,7 +1,9 @@
 ---
-- hosts: all
+- name: Ping
+  hosts: all
   remote_user: root
   gather_facts: no
-  - tasks:
-      name: "Ping the host {{ inventory_hostname }}"
-      ping:
+
+  tasks:
+  - name: "Ping the host {{ inventory_hostname }}"
+    ping:
