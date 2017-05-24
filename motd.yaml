@@ -8,7 +8,12 @@
 
   tasks:
     - name: Backup previous MOTD
-      copy: remote_src=True src=/etc/motd dest=/etc/motd.bak
+      copy:
+        remote_src: True
+        src: /etc/motd
+        dest: /etc/motd.bak
+    tags:
+      - deploy
 
     - name: Setup a MOTD
       template:
@@ -17,12 +22,14 @@
         owner: root
         group: wheel
         mode: 0644
+    tags:
+      - deploy
 
     - name: Restore the default a MOTD
       copy:
         remote_src: True
         src: /etc/motd.bak
         dest: /etc/motd
-      tags:
-        - rollback
+    tags:
+      - rollback
 
