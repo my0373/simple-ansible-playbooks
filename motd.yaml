@@ -3,8 +3,8 @@
   hosts: all
   remote_user: root
   gather_facts: no
-  vars:
-    MOTD_IMPORTANT: "Default Message"
+#  vars:
+#    MOTD_IMPORTANT: "Default Message"
 
   tasks:
     - name: setup a MOTD
