@@ -7,10 +7,10 @@
     MOTD_IMPORTANT: "Default Message"
 
   tasks:
-    - name: Copy files from foo to bar
+    - name: Backup previous MOTD
       copy: remote_src=True src=/etc/motd dest=/etc/motd.bak
 
-    - name: setup a MOTD
+    - name: Setup a MOTD
       template:
         src: motdtemplate.j2
         dest: /etc/motd
