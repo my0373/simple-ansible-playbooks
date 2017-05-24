@@ -7,6 +7,9 @@
     MOTD_IMPORTANT: "Default Message"
 
   tasks:
+    - name: Copy files from foo to bar
+      copy: remote_src=True src=/etc/motd dest=/etc/motd.bak
+
     - name: setup a MOTD
       template:
         src: motdtemplate.j2
@@ -14,4 +17,12 @@
         owner: root
         group: wheel
         mode: 0644
+
+    - name: Restore the default a MOTD
+      copy:
+        remote_src: True
+        src: /etc/motd.bak
+        dest: /etc/motd
+      tags:
+        - rollback
 
