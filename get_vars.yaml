@@ -1,8 +1,8 @@
 ---
-- name: MOTD
+- name: Dump all variables
   hosts: all
   remote_user: root
-  gather_facts: no
+  gather_facts: yes
   vars:
     MOTD_IMPORTANT: "Default Message"
 
