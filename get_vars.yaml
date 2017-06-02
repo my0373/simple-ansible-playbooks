@@ -1,0 +1,11 @@
+---
+- name: MOTD
+  hosts: all
+  remote_user: root
+  gather_facts: no
+  vars:
+    MOTD_IMPORTANT: "Default Message"
+
+  tasks:
+    - name: Dump all vars
+      action: template src=templates/dumpall.j2 dest=/tmp/ansible.all
